@@ -32,8 +32,8 @@ schema:
           minLength: 1
           maxLength: 100
         environment_accountid:
-          description: "Environment account ID"
           type: string
+          description: "Environment account ID"
           minLength: 12
           maxLength: 12
           default: ""
