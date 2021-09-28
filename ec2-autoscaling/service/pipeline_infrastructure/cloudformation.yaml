@@ -64,6 +64,8 @@ Resources:
                     },
                     "build": {
                       "commands": [
+                        "echo '=== set launch-template to use latest'",
+                        "aws autoscaling update-auto-scaling-group --auto-scaling-group-name ${AUTOSCALING_NAME} --launch-template LaunchTemplateId=${TEMPLATEID},Version='$Latest'",
                         "echo '=== build'",
                         "/opt/apache-maven/bin/mvn clean package",
                         "echo '=== copy code to the instance'",
@@ -89,7 +91,6 @@ Resources:
                     "post_build": {
                       "commands": [
                         "echo '=== refresh autoscaling instance'",
-                        "aws autoscaling update-auto-scaling-group --auto-scaling-group-name ${AUTOSCALING_NAME} --launch-template LaunchTemplateId=${TEMPLATEID},Version='$Latest'",
                         "aws autoscaling start-instance-refresh --auto-scaling-group-name ${AUTOSCALING_NAME}"
                       ]
                     }

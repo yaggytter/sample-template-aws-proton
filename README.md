@@ -1,5 +1,7 @@
 # EC2 based sample template for AWS Proton
 
+[日本語の説明はこちら](./README.ja.md)
+
 This repository is EC2 based template samples for AWS Proton. It created based on [AWS Proton sample templates](https://github.com/aws-samples/aws-proton-sample-templates).
 
 ## What kind of infrastructure will this template create?
