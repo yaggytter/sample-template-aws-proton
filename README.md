@@ -2,7 +2,7 @@
 
 [日本語の説明はこちら](./README.ja.md)
 
-This repository is EC2 based template samples for AWS Proton. It created based on [AWS Proton sample templates](https://github.com/aws-samples/aws-proton-sample-templates).
+This repository is EC2 based template samples for AWS Proton. It was created based on [AWS Proton sample templates](https://github.com/aws-samples/aws-proton-sample-templates).
 
 ## What kind of infrastructure will this template create?
 
@@ -10,12 +10,12 @@ This repository is EC2 based template samples for AWS Proton. It created based o
 
 ## How to use this?
 
-- Prepare two AWS accounts for using AWS Proton with following process
+- Prepare two AWS accounts to use AWS Proton with the following processes
 
   - https://docs.aws.amazon.com/proton/latest/adminguide/ag-setting-up.html
-  - During connecting to source code repository, you can fork from [simpleapp-springboot-java repository](https://github.com/yaggytter/simpleapp-springboot-java) to use as a simple Java application.
+  - When connecting to source code repository, you can fork from [simpleapp-springboot-java repository](https://github.com/yaggytter/simpleapp-springboot-java) to use as a simple Java application.
 
-- Create environment to use environment template
+- Create environment by using environment template
 
 ```
 ### Set up AWS CLI environment as Management account administrator before doing following commands
@@ -54,14 +54,14 @@ $ aws proton update-environment-template-version \
   --minor-version "0" \
   --status "PUBLISHED"
 
-# After published the template, you can create the environment to environment account using AWS Proton console or CLI on management account
+# After publishing the template, you can create the environment in environment account using AWS Proton console or CLI on management account
 https://ap-northeast-1.console.aws.amazon.com/proton/home#/environments
 
 ```
 
-- Connect from environment account to management account using folowing page
+- Connect from environment account to management account using the folowing page
   - https://ap-northeast-1.console.aws.amazon.com/proton/home#/settings/environment-account-connections
-- Create service to use service template
+- Create service by using service template
 
 ```
 # Prepare
@@ -94,27 +94,27 @@ $ aws proton update-service-template-version \
   --minor-version "0" \
   --status "PUBLISHED"
 
-# After published the template, you can create the service to environment account and create the pipeline to management account using AWS Proton console or CLI on management account
+# After publishing the template, you can create the service in environment account and create the pipeline to management account using AWS Proton console or CLI on management account
 https://ap-northeast-1.console.aws.amazon.com/proton/home#/services
 
 ```
 
-## How to debug templates for Proton?
+## How to debug templates for AWS Proton?
 
-The templates for Proton are using jinja2 to replace placeholders in the template. So the template is not worked as a CloudFormation template before replacing placeholders.
+The templates for Proton are using jinja2 to replace placeholders in the template. Now, the template will temporarily not work as a CloudFormation template before the replacing of placeholders.
 
 You can use 'jinja2cfn.py' script to replace placeholders to debug it.
 
-- Edit 'debug/envdata.py' adjusting with your template.
-- Execute following command to emulate replacement process.
+- Edit 'debug/envdata.py' to adjust with your template.
+- Execute the following command to emulate replacement process.
 
 ```
 $ pip install Jinja2
 $ python ../debug/jinja2cfn.py ./service/instance_infrastructure/cloudformation.yaml > ./tmp.yaml
 ```
 
-- You can debug tmp.yaml using regular method for CloudFormation.
+- You can debug tmp.yaml using regular method of CloudFormation.
 
-## TODO
+## TO DO
 
 - Grant least privilege access for IAM roles
